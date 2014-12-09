@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="D:\AndroidStudio\RPChecker\app\libs\universal-image-loader-1.9.3.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="a85588bec3e2c4584d593d3f15df1677321bca72">
+        <dex dex="D:\AndroidStudio\RPChecker\app\build\intermediates\pre-dexed\debug\universal-image-loader-1.9.3-d6bb1fe9a7095d9f3b668cce872b161fd46a8f9d.jar" />
+    </item>
+    <item
+        jar="D:\AndroidStudio\RPChecker\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.2\classes.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="d1bf02de1c56d942e7a9d093b8610ba1ef4128e3">
+        <dex dex="D:\AndroidStudio\RPChecker\app\build\intermediates\pre-dexed\debug\classes-7bb77276f88c5031ede429cddfec4bac056e3ec6.jar" />
+    </item>
+    <item
+        jar="D:\AndroidStudio\RPChecker\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\19.1.0\classes.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="3499ceba05ca1f6037c6a2fad73df8f636224a28">
+        <dex dex="D:\AndroidStudio\RPChecker\app\build\intermediates\pre-dexed\debug\classes-5f452f2662f9314a3e23ed05996d6aad6dc9baa4.jar" />
+    </item>
+    <item
+        jar="D:\android-develop\sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.2\support-annotations-21.0.2.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="99373741f99a0556ee293c41e8faa1ca3ae8a4e6">
+        <dex dex="D:\AndroidStudio\RPChecker\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.2-4941e6795bdf032e84b7cc8c700a78b9494915e4.jar" />
+    </item>
+    <item
+        jar="D:\AndroidStudio\RPChecker\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.2\libs\internal_impl-21.0.2.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="962e8b12569c56dbdcf8367eb4eac8bb129cd18f">
+        <dex dex="D:\AndroidStudio\RPChecker\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.2-60766ef7a3b9cdce6d9542a2b95ca22392bd3de2.jar" />
+    </item>
+
+</items>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">房屋實價方便查</string>
+    <string name="title_search_price">查詢房價</string>
+    <string name="title_search_history">查詢紀錄</string>
+    <string name="title_logout">登出</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <!-- General -->
+    <string name="dialog_progress_login">登入中&#8230;</string>
+    <string name="dialog_progress">處理中&#8230;</string>
+    <string name="alert_dialog_ok_btn">確認</string>
+    <string name="alert_dialog_cancel_btn">取消</string>
+    <string name="alert_dialog_msg_leave">是否要離開當前頁面？</string>
+    <string name="alert_dialog_msg_logout">是否要結束程式？</string>
+    <string name="btn_empty"></string>
+    
+    <!-- Login -->
+    <string name="login_text">房地產實價方便查</string>
+    <string name="login_username">帳號：</string>
+    <string name="login_username_hint">請輸入您的 E-Mail</string>
+    <string name="login_password">密碼：</string>
+    <string name="login_password_hint">請輸入您的密碼</string>
+    <string name="login_btn">登入</string>
+</resources>
