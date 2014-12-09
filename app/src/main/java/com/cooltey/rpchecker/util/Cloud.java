@@ -31,7 +31,7 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
 
 public class Cloud {
-	public static String URL_PREFIX = "http://56rec.com/realestate/api/";	
+	public static String URL_PREFIX = "";
     private static final String TAG = "Cloud";  
     // set connect method
     private static HttpClient sHttpClient = new DefaultHttpClient();
