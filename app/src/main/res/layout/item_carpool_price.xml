@@ -1,0 +1,25 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal" 
+    android:orientation="horizontal"
+    android:padding="@dimen/search_price_item_padding">
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="0dp"
+        android:layout_weight="0.6"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/carpool_item_margin"
+        android:textColor="#000000"
+        android:gravity="right"
+        android:textSize="@dimen/carpool_item_text_size" />
+    <EditText
+        android:id="@+id/price"
+        android:layout_width="0dp"
+        android:layout_weight="0.4"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:singleLine="true"
+        android:textSize="@dimen/carpool_item_text_size" />
+</LinearLayout>
