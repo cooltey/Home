@@ -1,0 +1,148 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:background="#ffebebeb">
+    <!--
+    <ImageView 
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/login_background"
+        android:scaleType="centerCrop"
+        />
+	<TextView
+        android:id="@+id/login_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/login_zone"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/login_margin"
+        android:text="@string/login_text"
+        android:textColor="#ffffff"
+        android:textSize="@dimen/login_title_up" />
+
+        -->
+    <RelativeLayout
+        android:id="@+id/login_zone"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/login_zone_height"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_margin="@dimen/login_margin"
+        android:padding="@dimen/login_column_padding" >
+
+        <RelativeLayout
+            android:id="@+id/login_username_column"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_margin="@dimen/login_column_margin_top" >
+
+            <TextView
+                android:id="@+id/login_username_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/login_column_margin_right"
+                android:text="@string/login_username"
+                android:textColor="#ff4f4f4f"
+                android:textSize="@dimen/login_column_text_size"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/username"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/login_edittext_height"
+                android:layout_toRightOf="@+id/login_username_txt"
+                android:fontFamily="sans-serif-light"
+                android:hint="@string/login_username_hint"
+                android:imeOptions="actionUnspecified"
+                android:maxLines="1"
+                android:paddingLeft="@dimen/login_edittext_padding"
+                android:background="#ffdcdcdc"
+                android:textColor="#ff4f4f4f"
+                android:singleLine="true"
+                android:alpha="0.8"
+                android:text="test@gmail.com" >
+
+                <requestFocus />
+            </EditText>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/login_password_column"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/login_username_column"
+            android:layout_margin="@dimen/login_column_margin_top" >
+
+            <TextView
+                android:id="@+id/login_password_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/login_column_margin_right"
+                android:text="@string/login_password"
+                android:textColor="#ff4f4f4f"
+                android:textSize="@dimen/login_column_text_size"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/login_edittext_height"
+                android:layout_toRightOf="@+id/login_password_txt"
+                android:fontFamily="sans-serif-light"
+                android:hint="@string/login_password_hint"
+                android:imeOptions="actionUnspecified"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:paddingLeft="@dimen/login_edittext_padding"
+                android:background="#ffdcdcdc"
+                android:textColor="#ff4f4f4f"
+                android:singleLine="true"
+                android:alpha="0.8"
+                android:text="000000" />
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/login_btn"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/login_btn_height"
+            android:layout_below="@+id/login_password_column"
+            android:layout_centerHorizontal="true"
+            android:text="@string/login_btn"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/login_btn_text_size"
+            android:textStyle="bold"
+            android:background="@drawable/button_custom"
+            android:alpha="1.0"/>
+        <TextView
+            android:id="@+id/login_divider"
+            android:layout_below="@+id/login_btn"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/realestate_divider_height"
+            android:layout_marginTop="@dimen/login_btn_margin_big"
+            android:layout_marginBottom="@dimen/login_btn_margin_big"
+            android:background="#ff686868"/>
+        <Button
+            android:id="@+id/login_fb_btn"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/login_btn_height"
+            android:layout_below="@+id/login_divider"
+            android:layout_centerHorizontal="true"
+            android:text="@string/login_fb_btn"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/login_btn_text_size"
+            android:textStyle="bold"
+            android:background="@drawable/ic_login_facebook_btn"
+            android:alpha="1.0"/>
+    </RelativeLayout>
+
+    
+
+</RelativeLayout>
+<!-- From: file:/D:/AndroidStudio/RPChecker/app/src/main/res/layout/activity_login.xml -->

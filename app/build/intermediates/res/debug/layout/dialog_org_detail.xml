@@ -1,0 +1,28 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/org_detail_zone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:padding="@dimen/search_price_padding"
+        android:layout_marginLeft="@dimen/search_price_margin"
+        android:layout_marginRight="@dimen/search_price_margin"
+        android:layout_marginTop="@dimen/search_price_margin"
+        android:layout_above="@+id/bottom_zone">
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:id="@+id/org_detail_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    />
+            </ScrollView>
+    </RelativeLayout>
+</RelativeLayout>
+<!-- From: file:/D:/AndroidStudio/RPChecker/app/src/main/res/layout/dialog_org_detail.xml -->

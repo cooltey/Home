@@ -8,7 +8,7 @@
     <TextView
         android:id="@+id/text"
         android:layout_width="0dp"
-        android:layout_weight="0.6"
+        android:layout_weight="0.5"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/carpool_item_margin"
         android:textColor="#000000"
@@ -21,5 +21,15 @@
         android:layout_height="wrap_content"
         android:inputType="number"
         android:singleLine="true"
+        android:textSize="@dimen/carpool_item_text_size" />
+    <TextView
+        android:id="@+id/unit"
+        android:layout_width="0dp"
+        android:layout_weight="0.1"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/carpool_item_margin"
+        android:textColor="#000000"
+        android:text="@string/carpool_price_item_price_lastfix"
+        android:gravity="left"
         android:textSize="@dimen/carpool_item_text_size" />
 </LinearLayout>

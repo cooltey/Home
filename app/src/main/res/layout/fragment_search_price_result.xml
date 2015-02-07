@@ -3,15 +3,56 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/activity_horizontal_margin">
+
+    <LinearLayout
+        android:id="@+id/search_column"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="@dimen/search_price_column_margin_top"
+        android:layout_marginBottom="@dimen/search_price_column_margin_top"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/search_keyword"
+            android:layout_width="0dp"
+            android:layout_weight="0.7"
+            android:layout_height="@dimen/search_price_edittext_height"
+            android:fontFamily="sans-serif-light"
+            android:hint="@string/search_price_keyword_hint"
+            android:imeOptions="actionUnspecified"
+            android:maxLines="1"
+            android:paddingLeft="@dimen/search_price_edittext_padding"
+            android:paddingRight="@dimen/search_price_edittext_padding"
+            android:background="#ffdcdcdc"
+            android:textColor="#ff4f4f4f"
+            android:singleLine="true"
+            android:alpha="0.8">
+
+        </EditText>
+        <Button
+            android:id="@+id/search_btn"
+            android:layout_width="0dp"
+            android:layout_weight="0.3"
+            android:layout_height="@dimen/search_price_edittext_height"
+            android:layout_centerHorizontal="true"
+            android:text="@string/search_price_btn"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/search_price_btn_text_size"
+            android:background="@drawable/button_custom"
+            android:layout_marginLeft="@dimen/search_price_btn_margin"
+            android:textStyle="bold" />
+    </LinearLayout>
+
     <TextView
         android:id="@+id/search_price_result_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
         android:layout_margin="@dimen/search_price_margin"
         android:text="@string/search_price_result_title_text"
         android:textColor="#333333"
-        android:textSize="@dimen/search_price_result_title_text_size" />
+        android:textSize="@dimen/search_price_result_title_text_size"
+        android:layout_below="@+id/search_column" />
 
     <ListView
         android:id="@+id/search_list_view"

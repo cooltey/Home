@@ -19,6 +19,6 @@
         android:layout_weight="0.8"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/navi_item_margin"
-        android:textColor="#999999"
+        android:textColor="#6b6b6b"
         android:textSize="@dimen/navi_item_text_size" />
 </LinearLayout>

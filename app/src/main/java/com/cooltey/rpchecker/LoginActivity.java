@@ -10,12 +10,14 @@ import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
 import android.text.Html;
 import android.text.TextUtils;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 
 import com.cooltey.rpchecker.util.Cloud;
+import com.cooltey.rpchecker.util.NetworkChecker;
 
 public class LoginActivity extends ActionBarActivity {
 	
@@ -42,8 +44,21 @@ public class LoginActivity extends ActionBarActivity {
 		
 		// set onclick
 		mLoginBtn.setOnClickListener(mBasicLoginListener);
-		getSupportActionBar().hide();
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+		//getSupportActionBar().hide();
 	}
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
 	// login listener
     private Cloud.LoginListener mCloudLoginListener = new Cloud.LoginListener() {
@@ -90,29 +105,43 @@ public class LoginActivity extends ActionBarActivity {
 		@Override
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
-			
-			boolean setLogin = true;
-			
-			// get username
-			String getUsername = mUsernameView.getText().toString();
-			if(TextUtils.isEmpty(getUsername)){
-				//mUsername.setError(getString(R.string.login_error_empty));
-				mUsernameView.setHint(Html.fromHtml("<font color='#FF0000'>"+ getString(R.string.login_username_hint)+"</font>"));
-			}
-			
-			// get password
-			String getPassword = mPasswordView.getText().toString();
-			if(TextUtils.isEmpty(getPassword)){
-				mPasswordView.setHint(Html.fromHtml("<font color='#FF0000'>"+ getString(R.string.login_password_hint)+"</font> "));
-				setLogin = false;
-			}
-			
-			
-			if(setLogin){
-				Cloud.basicLogin(getApplicationContext(), getUsername, getPassword, mCloudLoginListener);
-				mProgress.setMessage(getString(R.string.dialog_progress_login));
-				mProgress.show();
-			}
+
+
+            NetworkChecker networkChecker = new NetworkChecker(getApplicationContext());
+
+            if(networkChecker.getStatus()) {
+
+                boolean setLogin = true;
+
+                // get username
+                String getUsername = mUsernameView.getText().toString();
+                if (TextUtils.isEmpty(getUsername)) {
+                    //mUsername.setError(getString(R.string.login_error_empty));
+                    mUsernameView.setHint(Html.fromHtml("<font color='#FF0000'>" + getString(R.string.login_username_hint) + "</font>"));
+                }
+
+                // get password
+                String getPassword = mPasswordView.getText().toString();
+                if (TextUtils.isEmpty(getPassword)) {
+                    mPasswordView.setHint(Html.fromHtml("<font color='#FF0000'>" + getString(R.string.login_password_hint) + "</font> "));
+                    setLogin = false;
+                }
+
+
+                if (setLogin) {
+                    Cloud.basicLogin(getApplicationContext(), getUsername, getPassword, mCloudLoginListener);
+                    mProgress.setMessage(getString(R.string.dialog_progress_login));
+                    mProgress.show();
+                }
+            }else{
+                mAlertDialog.setMessage(R.string.alert_dialog_no_network);
+                mAlertDialog.setNeutralButton(getString(R.string.alert_dialog_ok_btn), new DialogInterface.OnClickListener(){
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+                mAlertDialog.show();
+            }
 		}
     	
     };

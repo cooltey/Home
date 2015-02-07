@@ -1,0 +1,57 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/trade_detail_zone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:padding="@dimen/search_price_padding"
+        android:layout_marginLeft="@dimen/search_price_margin"
+        android:layout_marginRight="@dimen/search_price_margin"
+        android:layout_marginTop="@dimen/search_price_margin"
+        android:layout_above="@+id/bottom_zone">
+        <TextView
+            android:id="@+id/trade_detail_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:textColor="#000000"
+            android:textSize="@dimen/realestate_trade_detail_title_textsize" />
+            <HorizontalScrollView
+                android:layout_below="@+id/trade_detail_title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:id="@+id/trade_detail_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    />
+            </HorizontalScrollView>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/bottom_zone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/search_price_margin"
+        android:paddingLeft="@dimen/search_price_padding"
+        android:paddingRight="@dimen/search_price_padding">
+        <Button
+            android:id="@+id/trade_detail_cancel_btn"
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="@dimen/realestate_btn_height"
+            android:layout_centerHorizontal="true"
+            android:text="@string/realestate_trade_carprice_btn"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/realestate_btn_text_size"
+            android:layout_margin="@dimen/realestate_btn_margin"
+            android:background="@drawable/button_custom"
+            android:textStyle="bold" />
+    </LinearLayout>
+</RelativeLayout>

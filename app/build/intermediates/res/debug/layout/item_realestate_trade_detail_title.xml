@@ -1,0 +1,62 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:padding="@dimen/search_price_item_padding">
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="0dp"
+            android:layout_weight="0.15"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/realestate_trade_detail_column_margin"
+            android:textColor="#000000"
+            android:gravity="right"
+            android:textSize="@dimen/realestate_trade_detail_column_textsize" />
+        <TextView
+            android:id="@+id/text2"
+            android:layout_width="0dp"
+            android:layout_weight="0.2"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/realestate_trade_detail_column_margin"
+            android:textColor="#000000"
+            android:gravity="right"
+            android:textSize="@dimen/realestate_trade_detail_column_textsize" />
+        <TextView
+            android:id="@+id/text3"
+            android:layout_width="0dp"
+            android:layout_weight="0.2"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/realestate_trade_detail_column_margin"
+            android:textColor="#000000"
+            android:gravity="right"
+            android:textSize="@dimen/realestate_trade_detail_column_textsize" />
+        <TextView
+            android:id="@+id/text4"
+            android:layout_width="0dp"
+            android:layout_weight="0.2"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/realestate_trade_detail_column_margin"
+            android:textColor="#000000"
+            android:gravity="right"
+            android:textSize="@dimen/realestate_trade_detail_column_textsize" />
+        <TextView
+            android:id="@+id/text5"
+            android:layout_width="0dp"
+            android:layout_weight="0.25"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/realestate_trade_detail_column_margin"
+            android:textColor="#000000"
+            android:gravity="right"
+            android:textSize="@dimen/realestate_trade_detail_column_textsize" />
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/realestate_divider_height"
+        android:background="#999999"/>
+</LinearLayout>
+<!-- From: file:/D:/AndroidStudio/RPChecker/app/src/main/res/layout/item_realestate_trade_detail_title.xml -->

@@ -1,24 +1,21 @@
 package com.cooltey.rpchecker;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
 
-import com.cooltey.rpchecker.util.Cloud;
+import com.cooltey.rpchecker.util.LogFactory;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 public class MainActivity extends ActionBarActivity implements
@@ -35,9 +32,12 @@ public class MainActivity extends ActionBarActivity implements
 	private ImageLoader mImageLoader;
 
 	// set navigation num
-	private final int NAVIGATION_SEARCH_PRICE 	= 0;
-	private final int NAVIGATION_SEARCH_HISTORY = 1;
-	private final int NAVIGATION_LOGOUT 		= 2;
+	public static final int NAVIGATION_SEARCH_PRICE 	= 0;
+    public static final int NAVIGATION_FEEDBACK 		= 1;
+    public static final int NAVIGATION_LOGOUT 		= 2;
+    public static final int NAVIGATION_SEARCH_HISTORY = 3;
+
+    private static Runnable mRunnable;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -58,11 +58,13 @@ public class MainActivity extends ActionBarActivity implements
 		mAlertDialog  = new AlertDialog.Builder(this);
 		
 		// initial image
-		mImageLoader = Cloud.initImageLoader(getApplicationContext());
+		//mImageLoader = Cloud.initImageLoader(getApplicationContext());
+
 	}
 
 	@Override
 	public void onNavigationDrawerItemSelected(int position) {
+        clearFragments();
 		// update the main content by replacing fragments
 		FragmentManager fragmentManager = getSupportFragmentManager();
 		switch(position){
@@ -70,18 +72,41 @@ public class MainActivity extends ActionBarActivity implements
 
 				fragmentManager
 						.beginTransaction()
-						.replace(R.id.container,
-								SearchPriceFragment.newInstance(position + 1)).commit();
+						.replace(R.id.container, SearchPriceFragment.newInstance(NAVIGATION_SEARCH_PRICE))
+                        //.addToBackStack(null)
+                        .commitAllowingStateLoss();
 			break;
-			
-			case NAVIGATION_SEARCH_HISTORY:
+
+			/*case NAVIGATION_SEARCH_HISTORY:
 
 				fragmentManager
 						.beginTransaction()
-						.replace(R.id.container,
-								SearchHistoryFragment.newInstance(position + 1)).commit();
-			break;
-			
+						.replace(R.id.container, SearchHistoryFragment.newInstance(position + 1))
+                        //.addToBackStack("SearchHistoryFragment")
+                        .commitAllowingStateLoss();
+            break;*/
+
+            case NAVIGATION_FEEDBACK:
+
+                mAlertDialog.setMessage(getString(R.string.alert_dialog_msg_feedback));
+                mAlertDialog.setPositiveButton(getString(R.string.alert_dialog_ok_btn), new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // do nothing;
+                        Intent intent = new Intent();
+                        intent.setAction(Intent.ACTION_SENDTO);
+                        intent.setData(Uri.parse(getString(R.string.feedback_email)));
+                        intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.feedback_title));
+                        intent.putExtra(Intent.EXTRA_TEXT,getString(R.string.feedback_content));
+                        startActivity(intent);
+                    }
+                });
+                mAlertDialog.setNegativeButton(getString(R.string.alert_dialog_cancel_btn), new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // do nothing;
+                    }
+                });
+                mAlertDialog.show();
+                break;
 
 			case NAVIGATION_LOGOUT:
 
@@ -103,18 +128,24 @@ public class MainActivity extends ActionBarActivity implements
 	}
 
 	public void onSectionAttached(int number) {
+        LogFactory.set("onSectionAttached", number);
 		switch (number) {
-		case 1:
-			mTitle = getString(R.string.title_search_price);
+		case NAVIGATION_SEARCH_PRICE:
+			mTitle = getString(R.string.title_home);
 			break;
-		case 2:
+		case NAVIGATION_SEARCH_HISTORY:
 			mTitle = getString(R.string.title_search_history);
 			break;
-		case 3:
+        case NAVIGATION_FEEDBACK:
+            mTitle = getString(R.string.title_feedback);
+            break;
+		case NAVIGATION_LOGOUT:
 			mTitle = getString(R.string.title_logout);
 			break;
 		}
-	}
+
+        restoreActionBar();
+    }
 
 	public void restoreActionBar() {
 		ActionBar actionBar = getSupportActionBar();
@@ -139,4 +170,39 @@ public class MainActivity extends ActionBarActivity implements
 		
 		return super.onOptionsItemSelected(item);
 	}
+
+    public void clearFragments(){
+        FragmentManager fm = getSupportFragmentManager();
+        LogFactory.set("clearFragments count", fm.getBackStackEntryCount());
+        for(int i = 0; i < fm.getBackStackEntryCount(); ++i) {
+            fm.popBackStack();
+        }
+    }
+
+
+    public void setOnBackFunction(Runnable runnable){
+        mRunnable = runnable;
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(mRunnable == null) {
+            mAlertDialog.setMessage(getString(R.string.alert_dialog_msg_logout));
+            mAlertDialog.setPositiveButton(getString(R.string.alert_dialog_ok_btn), new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    // do nothing;
+                    finish();
+                }
+            });
+            mAlertDialog.setNegativeButton(getString(R.string.alert_dialog_cancel_btn), new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
+                    // do nothing;
+                }
+            });
+            mAlertDialog.show();
+        }else{
+            mRunnable.run();
+            mRunnable = null;
+        }
+    }
 }

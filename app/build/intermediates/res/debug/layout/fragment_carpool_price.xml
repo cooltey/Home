@@ -1,0 +1,102 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/top_zone"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/carpool_topzone_height"
+        android:layout_alignParentTop="true">
+        <ImageView
+            android:id="@+id/top_img"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"/>
+        <TextView
+            android:id="@+id/top_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="#000000"
+            android:padding="@dimen/carpool_title_margin"
+            android:alpha="0.8"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/carpool_topzone_title_textsize" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/carpool_scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/top_zone"
+        android:layout_above="@+id/bottom_zone">
+        <RelativeLayout
+            android:id="@+id/carpool_price_zone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/search_price_margin"
+            android:padding="@dimen/search_price_padding" >
+            <TextView
+                android:id="@+id/price_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:textColor="#000000"
+                android:text="@string/carpool_price_desc"
+                android:textSize="@dimen/carpool_container_title_textsize" />
+            <TextView
+                android:id="@+id/price_tip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#999999"
+                android:text="@string/carpool_price_tip"
+                android:textSize="@dimen/carpool_container_tip_textsize"
+                android:layout_below="@+id/price_desc" />
+            <LinearLayout
+                android:id="@+id/carpool_price_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/carpool_container_margin"
+                android:layout_below="@id/price_tip"
+                android:orientation="vertical"/>
+        </RelativeLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/bottom_zone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/search_price_margin"
+        android:paddingLeft="@dimen/search_price_padding"
+        android:paddingRight="@dimen/search_price_padding">
+        <Button
+            android:id="@+id/carpool_cancel_btn"
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="@dimen/carpool_btn_height"
+            android:layout_centerHorizontal="true"
+            android:text="@string/carpool_price_cancel_btn"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/carpool_btn_text_size"
+            android:layout_margin="@dimen/carpool_btn_margin"
+            android:background="@drawable/button_custom_white"
+            android:textStyle="bold" />
+        <Button
+            android:id="@+id/carpool_next_btn"
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="@dimen/carpool_btn_height"
+            android:layout_centerHorizontal="true"
+            android:text="@string/carpool_price_next_btn"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/carpool_btn_text_size"
+            android:layout_margin="@dimen/carpool_btn_margin"
+            android:background="@drawable/button_custom"
+            android:textStyle="bold" />
+    </LinearLayout>
+</RelativeLayout>
+<!-- From: file:/D:/AndroidStudio/RPChecker/app/src/main/res/layout/fragment_carpool_price.xml -->

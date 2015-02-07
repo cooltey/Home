@@ -11,6 +11,7 @@ public class RealEstateTradeDetail {
     public String detail_levels;
     public String detail_total_size;
     public String detail_carpool_size;
+    public String detail_trade_number;
     public String detail_extra;
 
     public static RealEstateTradeDetail fromJSON(String json) {
@@ -24,6 +25,7 @@ public class RealEstateTradeDetail {
             data.detail_levels        = mainObject.getString("detail_levels");
             data.detail_total_size       = mainObject.getString("detail_total_size");
             data.detail_carpool_size = mainObject.getString("detail_carpool_size");
+            data.detail_trade_number = mainObject.getString("detail_trade_number");
             data.detail_extra       = mainObject.getString("detail_extra");
             
         } catch (Exception e) {

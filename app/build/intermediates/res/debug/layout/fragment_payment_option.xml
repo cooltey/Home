@@ -1,0 +1,89 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/payment_zone"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/search_price_margin"
+        android:text="@string/payment_option_title"
+        android:textColor="#333333"
+        android:textSize="@dimen/search_price_title_text_size" />
+
+    <RelativeLayout
+        android:id="@+id/payment_zone"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/search_price_zone_height"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_margin="@dimen/search_price_margin"
+        android:padding="@dimen/search_price_padding" >
+
+        <RadioGroup
+            android:id="@+id/payment_option_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <RadioButton
+                android:id="@+id/payment_option_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/payment_option_1"
+                android:textSize="@dimen/payment_option_btn_text_size"
+                android:layout_margin="@dimen/payment_option_margin"
+                android:checked="false" />
+            <RadioButton
+                android:id="@+id/payment_option_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/payment_option_2"
+                android:textSize="@dimen/payment_option_btn_text_size"
+                android:layout_margin="@dimen/payment_option_margin"/>
+            <RadioButton
+                android:id="@+id/payment_option_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/payment_option_3"
+                android:layout_margin="@dimen/payment_option_margin"/>
+
+            </RadioGroup>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/payment_zone"
+        android:layout_margin="@dimen/search_price_margin"
+        android:padding="@dimen/search_price_padding">
+        <Button
+            android:id="@+id/payment_cancel_btn"
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="@dimen/payment_option_btn_height"
+            android:layout_below="@+id/payment_option_group"
+            android:layout_centerHorizontal="true"
+            android:text="@string/payment_cancel_btn"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/payment_option_btn_text_size"
+            android:layout_margin="@dimen/payment_option_btn_margin"
+            android:background="@drawable/button_custom_white"
+            android:textStyle="bold" />
+        <Button
+            android:id="@+id/payment_buy_btn"
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="@dimen/payment_option_btn_height"
+            android:layout_below="@+id/payment_option_group"
+            android:layout_centerHorizontal="true"
+            android:text="@string/payment_buy_btn"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/payment_option_btn_text_size"
+            android:layout_margin="@dimen/payment_option_btn_margin"
+            android:background="@drawable/button_custom"
+            android:textStyle="bold" />
+    </LinearLayout>
+</RelativeLayout>
+<!-- From: file:/D:/AndroidStudio/RPChecker/app/src/main/res/layout/fragment_payment_option.xml -->

@@ -1,0 +1,31 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal" 
+    android:orientation="vertical"
+    android:padding="@dimen/search_price_item_padding">
+    <TextView
+        android:id="@+id/org_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/search_price_item_margin"
+        android:textColor="#000000"
+        android:textSize="@dimen/search_history_org_name" />
+    <TextView
+        android:id="@+id/address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/search_price_item_margin"
+        android:textColor="#000000"
+        android:textSize="@dimen/search_history_address" />
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/search_price_item_margin"
+        android:textColor="#999999"
+        android:textStyle="italic"
+        android:textSize="@dimen/search_history_date" />
+</LinearLayout>
+<!-- From: file:/D:/AndroidStudio/RPChecker/app/src/main/res/layout/item_search_history_result.xml -->
