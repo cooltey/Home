@@ -59,6 +59,7 @@ public class CarpoolPriceFragment extends Fragment {
     private ArrayList<String> mCarpoolFinalPrice = new ArrayList<String>();
     private String mCarpoolPrice;
     private double mFinalPrice = 0;
+    private int mCarpoolPriceLimit;
 
     private int mChosenPosition = 0;
 	/**
@@ -192,6 +193,9 @@ public class CarpoolPriceFragment extends Fragment {
                 mTopText.setText(tmpData.realestate_org_name);
                 mImageLoader.displayImage(mRecordImg, mTopImage);
 
+                // get car pool limit
+                mCarpoolPriceLimit = getMinPrice();
+
                 String getOrgname = tmpData.realestate_org_name;
 
                 setActionBarOrgName(getOrgname);
@@ -270,6 +274,23 @@ public class CarpoolPriceFragment extends Fragment {
         }
     }
 
+    private int getMinPrice(){
+        int returnVal = 0;
+
+        for(int i = 0; i < mRealEstateData.size(); i++){
+            int getMinPrice = Integer.parseInt(mRealEstateData.get(i).realestate_min_price);
+            LogFactory.set("getMinPrice", getMinPrice);
+            LogFactory.set("returnVal", returnVal);
+            if(getMinPrice != 0){
+                if(getMinPrice < returnVal || returnVal == 0){
+                    returnVal = getMinPrice;
+                }
+            }
+        }
+
+        return returnVal;
+    }
+
     private View.OnClickListener mCancelListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -325,12 +346,28 @@ public class CarpoolPriceFragment extends Fragment {
                     String getTag = editView.getTag().toString();
 
                     if(tmpData.realestate_carpool_types.contains(getTag)){
-                        mFinalPrice = mFinalPrice + (Double.parseDouble(editView.getText().toString()) * 10000);
 
-                        if(mCarpoolPrice.equals("")){
-                            mCarpoolPrice = (Double.parseDouble(editView.getText().toString()) * 10000) + "";
-                        }else {
-                            mCarpoolPrice = mCarpoolPrice + "," + (Double.parseDouble(editView.getText().toString()) * 10000);
+                        double getPrice = (Double.parseDouble(editView.getText().toString()) * 10000);
+
+                        if(getPrice <= mCarpoolPriceLimit) {
+
+                            mFinalPrice = mFinalPrice + getPrice;
+
+                            if (mCarpoolPrice.equals("")) {
+                                mCarpoolPrice = (Double.parseDouble(editView.getText().toString()) * 10000) + "";
+                            } else {
+                                mCarpoolPrice = mCarpoolPrice + "," + (Double.parseDouble(editView.getText().toString()) * 10000);
+                            }
+                        }else{
+                            mAlertDialog.setMessage(getString(R.string.carpool_price_overprice_warning));
+                            mAlertDialog.setNeutralButton(getString(R.string.alert_dialog_ok_btn), new DialogInterface.OnClickListener(){
+                                public void onClick(DialogInterface dialog, int which) {
+
+                                }
+                            });
+                            mAlertDialog.setCancelable(false);
+                            mAlertDialog.show();
+                            return;
                         }
                     }
                 }

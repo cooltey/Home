@@ -255,6 +255,7 @@
     <string name="carpool_price_item_price_no_result_feedback_btn">給予回饋</string>
     <string name="carpool_price_item_price_no_result_search_btn">重新查詢</string>
     <string name="carpool_price_next_btn">設定完成</string>
+    <string name="carpool_price_overprice_warning">車位價格請勿超過總價</string>
     <string name="carpool_price_tip">車位價格隨市場機制波動，請您輸入車位價格以便計算單價，或由系統帶入預設值</string>
     <string name="dialog_progress">處理中…</string>
     <string name="dialog_progress_login">登入中…</string>

@@ -203,7 +203,8 @@ public class RealEstateTradeDetailFragment extends Fragment {
 
             // get unit price
             String unitPrice = UnitPrice.get(getActivity(), tmpData.detail_total_price, mCarpoolPrice, tmpData.detail_total_size, tmpData.detail_carpool_size);
-            final String unitPriceTip = "(" + Float.parseFloat(tmpData.detail_total_price)/10000 + " - " + Float.parseFloat(mCarpoolPrice)/10000 + ") /  (" + Float.parseFloat(tmpData.detail_total_size) + " - " + tmpData.detail_carpool_size + ") = " + unitPrice;
+
+            final String unitPriceTip = UnitPrice.getTip(getActivity(), tmpData.detail_total_price, mCarpoolPrice, tmpData.detail_total_size, tmpData.detail_carpool_size);
 
             textView_5.setText(unitPrice);
             textView_5.setOnClickListener(new View.OnClickListener() {
