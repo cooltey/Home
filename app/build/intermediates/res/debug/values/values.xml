@@ -296,8 +296,8 @@
     <string name="realestate_trade_detail_btn">交易明細</string>
     <string name="realestate_trade_detail_column_1">項目</string>
     <string name="realestate_trade_detail_column_2">交易年月</string>
-    <string name="realestate_trade_detail_column_3">樓層</string>
-    <string name="realestate_trade_detail_column_4">交易樓層</string>
+    <string name="realestate_trade_detail_column_3">交易樓層</string>
+    <string name="realestate_trade_detail_column_4">總價</string>
     <string name="realestate_trade_detail_column_5">單價</string>
     <string name="realestate_trade_detail_column_6">總面積</string>
     <string name="realestate_trade_detail_column_7">交易筆棟數</string>

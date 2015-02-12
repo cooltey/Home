@@ -27,6 +27,7 @@ import com.cooltey.rpchecker.util.TipDialog;
 import com.cooltey.rpchecker.util.UnitPrice;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class RealEstateTradeDetailFragment extends Fragment {
@@ -197,7 +198,7 @@ public class RealEstateTradeDetailFragment extends Fragment {
             int currentNum = i + 1;
             textView_1.setText(currentNum + "");
             textView_2.setText(dateString);
-            textView_3.setText(tmpData.detail_levels + getString(R.string.realestate_trade_detail_column_level_lastfix));
+            textView_3.setText(tmpData.detail_levels);
 
             textView_4.setText(NumberFormatter.get(getActivity(), tmpData.detail_total_price, 0));
 
@@ -221,7 +222,13 @@ public class RealEstateTradeDetailFragment extends Fragment {
                     tipDialog.showPlain(unitPriceTip);
                 }
             });
-            textView_6.setText(Float.parseFloat(tmpData.detail_total_size) + "");
+
+            // format the total size
+            DecimalFormat formatter;
+            formatter = new DecimalFormat("#,###,###,###.##");
+            String totalSizeFormatter =  formatter.format(Float.parseFloat(tmpData.detail_total_size)*UnitPrice.SIZE_VALUE);
+
+            textView_6.setText(totalSizeFormatter + "");
             textView_7.setText(tmpData.detail_trade_number);
             textView_8.setText(tmpData.detail_extra);
 

@@ -7,7 +7,7 @@ import java.text.DecimalFormat;
 
 public class UnitPrice {
 
-    private static double SIZE_VALUE = 0.3025;
+    public static double SIZE_VALUE = 0.3025;
 
 	public static String get(Context context, String total_price, String car_price, String total_size, String car_size){
         String returnVal = "0";

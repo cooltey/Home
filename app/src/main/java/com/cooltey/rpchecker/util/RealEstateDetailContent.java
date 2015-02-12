@@ -41,7 +41,7 @@ public class RealEstateDetailContent {
             String[] columnValue = {tmpData.realestate_city,
                     tmpData.realestate_district,
                     tmpData.realestate_org_name,
-                    tmpData.realestate_finish_date.substring(0, 2) + "/" + tmpData.realestate_finish_date.substring(2, 4) + "/" + tmpData.realestate_finish_date.substring(4, 6),
+                    finalDate,
                     tmpData.realestate_address + context.getString(R.string.tip_org_column_5_lastfix),
                     tmpData.realestate_levels + context.getString(R.string.tip_org_column_6_lastfix),
                     tmpData.realestate_build_type};
@@ -66,15 +66,17 @@ public class RealEstateDetailContent {
             LogFactory.set("carpoolType", carpoolType.length);
             LogFactory.set("carpoolPrice", carpoolPrice.length);
             for (int j = 0; j < carpoolType.length; j++) {
-                View rootView = layoutInflater.inflate(R.layout.item_tip_org, null);
+                if(carpoolType[j].length() > 0) {
+                    View rootView = layoutInflater.inflate(R.layout.item_tip_org, null);
 
-                TextView textLeft = (TextView) rootView.findViewById(R.id.text);
-                TextView textRight = (TextView) rootView.findViewById(R.id.text2);
+                    TextView textLeft = (TextView) rootView.findViewById(R.id.text);
+                    TextView textRight = (TextView) rootView.findViewById(R.id.text2);
 
-                textLeft.setText(carpoolType[j] + context.getString(R.string.tip_org_column_8_divider));
-                textRight.setText(NumberFormatter.get(context, carpoolPrice[j], 0));
+                    textLeft.setText(carpoolType[j] + context.getString(R.string.tip_org_column_8_divider));
+                    textRight.setText(NumberFormatter.get(context, carpoolPrice[j], 0));
 
-                dialogContainer.addView(rootView);
+                    dialogContainer.addView(rootView);
+                }
             }
 
             // tip dialog
