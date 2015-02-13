@@ -347,16 +347,19 @@ public class CarpoolPriceFragment extends Fragment {
 
                     if(tmpData.realestate_carpool_types.contains(getTag)){
 
-                        double getPrice = (Double.parseDouble(editView.getText().toString()) * 10000);
+                        double getPrice = 0;
+                        if(editView.getText().toString().length() > 0){
+                            getPrice = (Double.parseDouble(editView.getText().toString()) * 10000);
+                        }
 
                         if(getPrice <= mCarpoolPriceLimit) {
 
                             mFinalPrice = mFinalPrice + getPrice;
 
                             if (mCarpoolPrice.equals("")) {
-                                mCarpoolPrice = (Double.parseDouble(editView.getText().toString()) * 10000) + "";
+                                mCarpoolPrice = getPrice + "";
                             } else {
-                                mCarpoolPrice = mCarpoolPrice + "," + (Double.parseDouble(editView.getText().toString()) * 10000);
+                                mCarpoolPrice = mCarpoolPrice + "," + getPrice;
                             }
                         }else{
                             mAlertDialog.setMessage(getString(R.string.carpool_price_overprice_warning));

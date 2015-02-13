@@ -105,6 +105,7 @@
     <string name="realestate_trade_detail_column_8">特殊備註</string>
     <string name="realestate_trade_detail_column_8_lastfix">：</string>
     <string name="realestate_trade_detail_column_level_lastfix">&#160;樓</string>
+    <string name="realestate_trade_detail_column_size_lastfix">&#160;坪</string>
 
     <!--Tip-->
     <string name="tip_org_column_1">行政中心：</string>

@@ -304,6 +304,7 @@
     <string name="realestate_trade_detail_column_8">特殊備註</string>
     <string name="realestate_trade_detail_column_8_lastfix">：</string>
     <string name="realestate_trade_detail_column_level_lastfix"> 樓</string>
+    <string name="realestate_trade_detail_column_size_lastfix"> 坪</string>
     <string name="realestate_trade_detail_desc_lastfix"> 個月交易明細</string>
     <string name="realestate_trade_detail_desc_prefix">近 </string>
     <string name="realestate_trade_graph_btn">趨勢圖</string>

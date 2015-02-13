@@ -228,7 +228,7 @@ public class RealEstateTradeDetailFragment extends Fragment {
             formatter = new DecimalFormat("#,###,###,###.##");
             String totalSizeFormatter =  formatter.format(Float.parseFloat(tmpData.detail_total_size)*UnitPrice.SIZE_VALUE);
 
-            textView_6.setText(totalSizeFormatter + "");
+            textView_6.setText(totalSizeFormatter + getString(R.string.realestate_trade_detail_column_size_lastfix));
             textView_7.setText(tmpData.detail_trade_number);
             textView_8.setText(tmpData.detail_extra);
 
